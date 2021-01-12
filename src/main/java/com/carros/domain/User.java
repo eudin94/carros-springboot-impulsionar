@@ -3,7 +3,6 @@ package com.carros.domain;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -27,14 +26,6 @@ public class User implements UserDetails {
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private List<Role> roles;
-
-    public static void main(String[] args) {
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        System.out.println("jajaja = " + encoder.encode("jajaja"));
-        System.out.println("user = " + encoder.encode("user"));
-        System.out.println("admin = " + encoder.encode("admin"));
-        System.out.println("123 = " + encoder.encode("123"));
-    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
