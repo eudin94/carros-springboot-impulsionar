@@ -12,11 +12,6 @@ public class IndexController {
     public String get() {
         return "API dos Carros - Heroku Git";
     }
-
-    @GetMapping("/userInfo")
-    public UserDetails userInfo(@AuthenticationPrincipal UserDetails user) {
-        return user;
-    }
 /*
     @GetMapping("/login/{login}/senha/{senha}")
     public String login(@PathVariable("login") String login,@PathVariable("senha") String senha) {
